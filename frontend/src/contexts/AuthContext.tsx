@@ -1,15 +1,7 @@
-import { createContext, useContext, useState, useCallback, type ReactNode } from 'react'
+import { useState, useCallback, type ReactNode } from 'react'
 import { authService } from '../services/auth'
 import type { LoginRequest } from '../types'
-
-interface AuthContextType {
-  isAuthenticated: boolean
-  login: (data: LoginRequest) => Promise<void>
-  register: (email: string, senha: string) => Promise<void>
-  logout: () => void
-}
-
-const AuthContext = createContext<AuthContextType | null>(null)
+import { AuthContext } from './createContext'
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem('accessToken'))
@@ -35,10 +27,4 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       {children}
     </AuthContext.Provider>
   )
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext)
-  if (!context) throw new Error('useAuth must be used within AuthProvider')
-  return context
 }

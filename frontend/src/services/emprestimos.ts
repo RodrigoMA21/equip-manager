@@ -9,8 +9,8 @@ export const emprestimoService = {
   create: (data: EmprestimoRequest) => api.post<EmprestimoResponse>('/emprestimos', data),
 
   devolver: (id: IdEquipamentoToColaborador) =>
-    api.put(`/emprestimos/${id.idEquipamento},${id.idColaborador}/devolver`),
+    api.put(`/emprestimos/${id.idEquipamento}-${id.idColaborador}/devolver`),
 
   delete: (id: IdEquipamentoToColaborador) =>
-    api.delete(`/emprestimos/${id.idEquipamento},${id.idColaborador}`),
+    api.delete(`/emprestimos/${id.idEquipamento}-${id.idColaborador}`),
 }
