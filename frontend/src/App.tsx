@@ -11,6 +11,7 @@ import { EquipamentosList } from './pages/Equipamentos/List'
 import { EquipamentoForm } from './pages/Equipamentos/Form'
 import { TiposEquipamentoList } from './pages/TiposEquipamento/List'
 import { EmprestimosList } from './pages/Emprestimos/List'
+import { EmprestimoForm } from './pages/Emprestimos/Form'
 import { ParametrosForm } from './pages/Parametros/Form'
 
 const queryClient = new QueryClient()
@@ -32,6 +33,7 @@ export default function App() {
               <Route path="/equipamentos/:id" element={<EquipamentoForm />} />
               <Route path="/tipos-equipamento" element={<TiposEquipamentoList />} />
               <Route path="/emprestimos" element={<EmprestimosList />} />
+              <Route path="/emprestimos/novo" element={<EmprestimoForm />} />
               <Route path="/parametros" element={<ParametrosForm />} />
             </Route>
           </Routes>
