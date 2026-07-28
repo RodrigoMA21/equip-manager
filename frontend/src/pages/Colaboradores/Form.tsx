@@ -12,7 +12,7 @@ export function ColaboradorForm() {
   const [form, setForm] = useState<ColaboradorRequest>({
     cpf: '', nome: '', email: '', cep: '', data_aniversario: '',
     data_contratacao_inicio: '', data_contratacao_recisao: '',
-    especificacao_equipamento: '', numeroCasa: 0,
+    especificacao_equipamento: '', numeroCasa: 0, complemento: '',
   })
   const [endereco, setEndereco] = useState<ViaCEPResponse | null>(null)
 
@@ -30,6 +30,7 @@ export function ColaboradorForm() {
           data_contratacao_recisao: c.data_contratacao_recisao || '',
           especificacao_equipamento: c.especificacao_equipamento,
           numeroCasa: c.endereco?.numero || 0,
+          complemento: c.endereco?.complemento || '',
         })
         if (c.endereco) {
           setEndereco({
@@ -58,7 +59,10 @@ export function ColaboradorForm() {
     try {
       const res = await fetch(`https://viacep.com.br/ws/${cepLimpo}/json/`)
       const data: ViaCEPResponse = await res.json()
-      if (!data.erro) setEndereco(data)
+      if (!data.erro) {
+        setEndereco(data)
+        setForm((prev) => ({ ...prev, complemento: prev.complemento || data.complemento || '' }))
+      }
     } catch {
     } finally {
       setBuscandoCep(false)
@@ -132,7 +136,7 @@ export function ColaboradorForm() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Complemento</label>
-                <input value={endereco.complemento || ''} disabled className="w-full px-3 py-2 border border-gray-200 rounded-lg bg-gray-50 text-gray-600 text-sm" />
+                <input value={form.complemento || ''} onChange={set('complemento')} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-slate-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Cidade</label>

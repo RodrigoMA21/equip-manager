@@ -31,6 +31,9 @@ public class ColaboradorService {
         Colaborador colaborador = Colaborador.converterParaColaborador(colaboradorRequestDTO);
         Endereco enderecoDoColaborador = enderecoClient.retornarEnderecoPorCep(colaborador.getCep());
         enderecoDoColaborador.setNumero(colaboradorRequestDTO.getNumeroCasa());
+        if (colaboradorRequestDTO.getComplemento() != null) {
+            enderecoDoColaborador.setComplemento(colaboradorRequestDTO.getComplemento());
+        }
 
         colaborador.setEndereco(enderecoDoColaborador);
         enderecoDoColaborador.setColaborador(colaborador);

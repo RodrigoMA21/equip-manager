@@ -51,6 +51,7 @@ export interface ColaboradorRequest {
   data_contratacao_recisao?: string
   especificacao_equipamento: string
   numeroCasa: number
+  complemento?: string
 }
 
 export interface ColaboradorUpdate {

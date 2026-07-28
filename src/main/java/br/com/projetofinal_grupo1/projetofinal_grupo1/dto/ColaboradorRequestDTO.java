@@ -47,4 +47,6 @@ public class ColaboradorRequestDTO {
     @NotNull(message = "Número da casa não pode ser vazio")
     @PositiveOrZero(message = "Número da casa deve ser maior ou igual a zero")
     private Integer numeroCasa;
+
+    private String complemento;
 }
