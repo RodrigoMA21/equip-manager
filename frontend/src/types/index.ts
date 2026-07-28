@@ -25,6 +25,22 @@ export interface UsuarioResponse {
   authorities: string[]
 }
 
+export interface ViaCEPResponse {
+  cep: string
+  logradouro: string
+  complemento: string
+  bairro: string
+  localidade: string
+  uf: string
+  estado: string
+  regiao: string
+  ibge: string
+  gia: string
+  ddd: string
+  siafi: string
+  erro?: boolean
+}
+
 export interface ColaboradorRequest {
   cpf: string
   nome: string

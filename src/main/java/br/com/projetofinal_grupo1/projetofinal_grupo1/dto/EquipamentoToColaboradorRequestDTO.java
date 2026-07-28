@@ -16,10 +16,10 @@ public class EquipamentoToColaboradorRequestDTO {
     @NotNull
     private IdEquipamentoToColaborador chaveCompostaEquipamentoColaborador;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataEntrega;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataDevolucao;
 
     public EquipamentoToColaborador toEntity() {

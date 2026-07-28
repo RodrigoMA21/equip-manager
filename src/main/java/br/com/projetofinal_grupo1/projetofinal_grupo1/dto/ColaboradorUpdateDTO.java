@@ -24,9 +24,9 @@ public class ColaboradorUpdateDTO {
     private String cep;
     @NotNull
     @PastOrPresent
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataContratacaoInicio;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate dataContratacaoRecisao;
     @NotBlank
     private String equipamentoEspecificacao;

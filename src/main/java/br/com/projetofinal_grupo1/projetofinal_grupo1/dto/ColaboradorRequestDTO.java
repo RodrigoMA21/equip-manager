@@ -29,17 +29,16 @@ public class ColaboradorRequestDTO {
 
     @NotNull(message = "Data de aniversário não deve estar vazia")
     @Past(message = "Data de aniversário inválida")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate data_aniversario;
 
     @NotNull(message = "Data de contratação não deve estar vazia")
     @PastOrPresent(message = "Data de contratação inválida" )
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate data_contratacao_inicio;
 
-    @NotNull(message = "Data de recisão não deve estar vazia")
     @PastOrPresent(message = "Data de recisão inválida")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate data_contratacao_recisao;
 
     @NotBlank(message = "Especificação de equipamento não deve ser vazio")
