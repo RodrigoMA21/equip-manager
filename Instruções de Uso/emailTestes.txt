@@ -1,0 +1,11 @@
+JRLL
+
+Jrllapi@Yahoo.com
+senha :crud12345678
+
+
+
+Mailtrap
+Fazer login com Jrllapi@Yahoo.com
+senha: Raro12345678!
+Entrar no Mailtrap em sandbox
